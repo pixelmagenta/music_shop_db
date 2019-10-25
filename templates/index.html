@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Добро пожаловать в мир музыки! -->
+<form action="/collection/search/{{ cmd_id }}" style="max-width: 1000px">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-info dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+        {{cmds[cmd_id]['name']}}
+    </button>
+    <div class="dropdown-menu">
+      {% for cmd in cmds %}
+      <a class="dropdown-item" href="/collection/search/{{ loop.index0 }}">{{ cmd['name'] }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <input type="text" name="query" class="form-control" value="{{query}}">
+  <div class="input-group-append">
+    <button type="submit" class="btn btn-info">Поиск</button>
+  </div>
+</div>
+</form>
+
+<div class="row">
+    <div class="col" style="margin-left: -100px">
+        <h5>Жанры:</h5>
+        <ul class="list-group list-group-flush">
+        {% for (genre,) in genres %}
+          <li class="list-group-item list-group-item-action">{{ genre }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="col">
+        <h5>Композиторы:</h5>
+        <ul class="list-group list-group-flush">
+        {% for name, surname in authors %}
+          <li class="list-group-item list-group-item-action">{{ name }} {{ surname }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="col">
+        <h5>Магазины:</h5>
+        <ul class="list-group list-group-flush" style="margin-right: -20px">
+        {% for name, address in shops %}
+          <li class="list-group-item list-group-item-action">{{ name }}, {{ address }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

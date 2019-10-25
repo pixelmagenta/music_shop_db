@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Содержание сборника "{{collection_name}}"</h1>
+<h5>Жанры: {{genres}}</h5>
+<br>
+<dl class="row">
+{% for composition_name, author_name, author_surname, page in data %}
+    <dd class="col-7">{{ composition_name }}. {{ author_name }} {{ author_surname }}</dd>
+    <dt class="col-5">{{ page }}</dt>
+{% endfor %}
+</dl>
+{% endblock %}

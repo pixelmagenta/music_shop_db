@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% if success %}
+<div class="alert alert-success" role="alert">
+     Успешно!  
+</div>
+{% endif %}
+<br>
+<h5 style="margin-left: 200px">Добавление новой композиции</h5>
+<form action="/composition/add" method="post" style="margin-left: 200px; max-width: 500px">
+    <input type="text" name="name" class="form-control" placeholder="Название произведения">
+    <input type="text" name="genre" class="form-control" placeholder="Жанр">
+    <input type="text" name="author_name" class="form-control" placeholder="Имя композитора">
+    <input type="text" name="author_surname" class="form-control" placeholder="Фамилия композитора">  
+    <button type="submit" class="btn btn-info">Добавить</button>
+</div>
+</form>
+{% endblock %}

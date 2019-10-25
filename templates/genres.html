@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        <br>
+        <div class="d-flex flex-row bd-highlight justify-content-between">
+        <h5>Жанры:</h5>
+        <button type="button" class="btn btn-outline-success mb-2 mr-3">Добавить</button>
+        </div>
+        <ul class="list-group list-group-flush">
+        {% for id, genre in genres %}
+          <li class="list-group-item list-group-item-action">
+            <div class="d-flex flex-row bd-highlight justify-content-between">
+                <span>{{ genre }}</span>
+                <a href="/genre/edit/{{ id }}" class="btn btn-outline-warning ml-auto">Изменить</a>
+                <a href="/genre/delete/{{ id }}" class="btn btn-outline-danger ml-2">Удалить</a>
+                </div>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

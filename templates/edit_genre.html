@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% if success %}
+<div class="alert alert-success" role="alert">
+     Успешно!  
+</div>
+{% endif %}
+<br>
+<h5 style="margin-left: 200px">Изменение жанра</h5>
+<form action="/genre/edit/{{ id }}" method="post" style="margin-left: 200px; max-width: 500px">
+<div class="input-group mb-3">
+    <input type="text" name="name" class="form-control" value="{{name}}">
+  <div class="input-group-append">
+    <button type="submit" class="btn btn-info">Сохранить</button>
+  </div>
+</div>
+</form>
+{% endblock %}
